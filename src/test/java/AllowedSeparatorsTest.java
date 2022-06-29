@@ -11,7 +11,7 @@ class AllowedSeparatorsTest {
     void getDelimiterReturnsCorrectly() {
         String extension = "tab";
         String delimiter = AllowedSeparators.getDelimiter(extension);
-        assertThat(delimiter).isEqualTo("\t");
+        assertThat(delimiter).isEqualTo("\t+");
         log.info("Delimiter: {}", delimiter);
     }
 

@@ -60,7 +60,7 @@ class TextParserTest {
 
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> textParser.parse(location))
-                .withMessage("Must call program with only one argument: file location");
+                .withMessage("Must call program with only one argument: file name.");
     }
 
     @Test
@@ -69,6 +69,15 @@ class TextParserTest {
 
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> textParser.parse(location))
-                .withMessage("Must call program with only one argument: file location");
+                .withMessage("Must call program with only one argument: file name.");
+    }
+
+    @Test
+    void parseFailsWhenArgsAreBlank() {
+        String[] location = {""};
+
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> textParser.parse(location))
+                .withMessage("File name must not be blank.");
     }
 }
